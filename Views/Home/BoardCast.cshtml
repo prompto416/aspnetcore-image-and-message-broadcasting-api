@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "BoardCast Page";
+}
+
+    <div class="form-group">
+        <label>Enter User</label>
+        <textarea class="form-control" id="txtAreaUser" placeholder="Enter User" rows="8"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Enter Message</label>
+        <input type="text" class="form-control" id="txtMessage" placeholder="Enter Message">
+    </div>
+    <button onclick="submitForm()" class="btn btn-primary">Send</button>
+
+<script type="text/javascript">
+    function submitForm() {
+        var data = {
+            listName: $("#txtAreaUser").val(),
+            Message: $("#txtMessage").val(),
+        };
+        $.ajax({
+            type: 'POST',
+            url: '/api/LineService/SendMultiMessage',
+            contentType: "application/json",
+            data: JSON.stringify(data),
+        })
+        location.reload();
+    }
+
+</script>
+
+
+<script src="~/js/jquery-2.2.3.min.js"></script>
+<form method="post" asp-controller="Home" asp-action="ImageUpload" enctype="multipart/form-data">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Photo:</label>
+        <div class="col-sm-10">
+            <div class="custom-file">
+                <input class="form-control custom-file-input" type="file" name="file" />
+                <label class="custom-file-label"Browse..</label>
+                
+            </div>
+            
+        </div>
+        <button type="submit">Upload</button>
+
+    </div>
+    <!--img src="" width="600" height="400" /-->
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".custom-file-input").on("change", function(){
+            var fileName = $(this).val().split("\\").pop();
+            $(this).next(".custom-file-label").html(fileName);
+        })
+    });
+</script>
