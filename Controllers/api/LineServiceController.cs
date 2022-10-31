@@ -22,7 +22,8 @@ namespace LineService.Controllers.api
     {
         private readonly ApplicationDbContext _context;
         private readonly string lineUrl = "https://api.line.me/v2/bot";
-        private readonly string tokenLine = "V9+j5TbDKQGcF/RCRHhkUn2fyufSuxtShgqLKz4n+8VPT2FFaKCk0uCN6ZFxDzvnG455liuKd/U4IphqLg6PNl2E7A0IYSfCg787Irx07uVc4KCZRInS0gaV1FbMJBePSVs4AYS9AN6hJppNM8946gdB04t89/1O/w1cDnyilFU=";
+        //Your token
+        private readonly string tokenLine = "";
         public LineServiceController(ApplicationDbContext context)
         {
             _context = context;
