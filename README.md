@@ -1,2 +1,2 @@
 
-## Note: Confidential information are not included, in order to run the code reader may have to create a new project first then put the file into the solution later
+## Note: Confidential information are not included in the main branch, see master branch for the working demo version
